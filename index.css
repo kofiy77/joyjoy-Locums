@@ -1,0 +1,926 @@
+/* JoyJoy Locums Design System - GP & Nurse Practitioners */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* iOS and Android Optimizations */
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior: none;
+}
+
+/* Prevent zoom on iOS when focusing inputs */
+input, select, textarea {
+  font-size: 16px;
+}
+
+/* Mobile-First Responsive Design */
+@media (max-width: 768px) {
+  /* Touch-friendly button sizing */
+  .btn, button {
+    min-height: 44px;
+    min-width: 44px;
+    touch-action: manipulation;
+  }
+  
+  /* Larger tap targets for mobile */
+  .mobile-tap-target {
+    min-height: 48px;
+    padding: 12px 16px;
+  }
+  
+  /* Mobile navigation improvements */
+  .mobile-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background: white;
+    border-top: 1px solid #e5e7eb;
+    padding: 8px 0;
+  }
+  
+  /* Card improvements for mobile */
+  .mobile-card {
+    margin: 8px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Form input improvements */
+  input, select, textarea {
+    font-size: 16px; /* Prevents zoom on iOS */
+    padding: 12px 16px;
+    border-radius: 8px;
+  }
+  
+  /* Modal improvements for mobile */
+  .mobile-modal {
+    margin: 0;
+    max-height: 90vh;
+    border-radius: 12px 12px 0 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  /* Rate cards mobile optimization */
+  .rate-card-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 12px;
+  }
+  
+  /* Table improvements for mobile */
+  .mobile-table {
+    font-size: 14px;
+  }
+  
+  .mobile-table th,
+  .mobile-table td {
+    padding: 8px 4px;
+  }
+  
+  /* Hide less important columns on mobile */
+  .mobile-hide {
+    display: none;
+  }
+  
+  /* Swipe gestures */
+  .swipe-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .swipe-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Pull to refresh indicator */
+  .pull-to-refresh {
+    transition: transform 0.3s ease;
+  }
+  
+  /* Safe areas for iOS */
+  .safe-area-inset-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  
+  .safe-area-inset-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  /* Floating action button */
+  .fab {
+    position: fixed;
+    bottom: 80px;
+    right: 16px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 40;
+  }
+  
+  /* Mobile-specific optimizations */
+  .mobile-container {
+    padding: 8px 12px;
+    max-width: 100vw;
+  }
+  
+  .mobile-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .mobile-card {
+    margin: 8px 0;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .mobile-button {
+    min-height: 48px;
+    padding: 12px 16px;
+    font-size: 16px;
+    border-radius: 8px;
+    touch-action: manipulation;
+  }
+  
+  /* Rate card mobile improvements */
+  .rate-card-mobile {
+    padding: 16px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+  
+  .rate-card-mobile .rate-display {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 4px 0;
+  }
+  
+  .rate-card-mobile .role-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1e40af;
+    margin-bottom: 8px;
+  }
+  
+  /* Mobile navigation improvements */
+  .mobile-nav-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: white;
+    border-top: 1px solid #e5e7eb;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 16px;
+  }
+  
+  .mobile-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px;
+    min-width: 44px;
+    text-decoration: none;
+    color: #6b7280;
+    transition: color 0.2s;
+  }
+  
+  .mobile-nav-item.active {
+    color: #2563eb;
+  }
+  
+  .mobile-nav-icon {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 4px;
+  }
+  
+  .mobile-nav-label {
+    font-size: 10px;
+    font-weight: 500;
+  }
+  
+  /* Tab text truncation for mobile */
+  .mobile-tab-text {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 120px;
+  }
+  
+  /* Tabs container mobile optimization */
+  .mobile-tabs {
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .mobile-tabs::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .mobile-tabs .tab-item {
+    flex-shrink: 0;
+    min-width: 80px;
+    max-width: 140px;
+    padding: 8px 12px;
+    text-align: center;
+  }
+  
+  .mobile-tabs .tab-item span {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: block;
+    font-size: 14px;
+  }
+  
+  /* Enhanced mobile tab styling for iOS and Android */
+  .mobile-tabs {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
+  }
+  
+  .mobile-tabs::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .mobile-tab-text {
+    flex-shrink: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 55px;
+    max-width: 85px;
+    padding: 4px 6px !important;
+    font-size: 10px !important;
+    line-height: 1.2;
+  }
+  
+  .mobile-tab-text span {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: block;
+    max-width: 100%;
+  }
+  
+  /* iOS Safari specific fixes */
+  @supports (-webkit-touch-callout: none) {
+    .mobile-tab-text {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      min-width: 50px;
+      max-width: 75px;
+      padding: 3px 5px !important;
+      font-size: 9px !important;
+    }
+  }
+  
+  /* iPhone SE and very small screens */
+  @media (max-width: 375px) {
+    .mobile-tab-text {
+      min-width: 45px;
+      max-width: 65px;
+      padding: 3px 4px !important;
+      font-size: 9px !important;
+    }
+    
+    .mobile-tabs {
+      padding: 1px !important;
+      gap: 1px !important;
+    }
+  }
+  
+  /* iPhone 12/13/14 and similar */
+  @media (min-width: 375px) and (max-width: 430px) {
+    .mobile-tab-text {
+      min-width: 50px;
+      max-width: 75px;
+      padding: 4px 5px !important;
+      font-size: 10px !important;
+    }
+  }
+  
+  /* Larger phones and small tablets */
+  @media (min-width: 430px) and (max-width: 768px) {
+    .mobile-tab-text {
+      min-width: 65px;
+      max-width: 95px;
+      padding: 6px 8px !important;
+      font-size: 11px !important;
+    }
+  }
+  
+  /* Tablet landscape and desktop */
+  @media (min-width: 768px) {
+    .mobile-tab-text {
+      min-width: auto;
+      max-width: none;
+      padding: 8px 12px !important;
+      font-size: 14px !important;
+    }
+  }
+
+  /* Scrollbar hiding utility */
+  .scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Enhanced mobile dropdown menu styling */
+  .mobile-dropdown-trigger {
+    min-height: 44px; /* iOS touch target minimum */
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .mobile-dropdown-content {
+    min-width: 280px;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+
+  .mobile-dropdown-item {
+    min-height: 44px; /* iOS touch target minimum */
+    display: flex;
+    align-items: center;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Enhanced staff portal tab styling */
+  .staff-main-tab {
+    min-width: 70px;
+    max-width: 90px;
+    padding: 8px 4px !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    transition: all 0.2s ease;
+  }
+
+  .staff-main-tab[data-state="active"] {
+    background-color: #3b82f6;
+    color: white;
+  }
+
+  .staff-main-tab span {
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  /* Staff profile tabs styling */
+  .staff-profile-tabs {
+    background-color: #f1f5f9;
+    border-radius: 8px;
+    padding: 4px;
+  }
+
+  .staff-tab-trigger {
+    min-height: 48px;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .staff-tab-trigger[data-state="active"] {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+  }
+
+  /* Status indicator dots */
+  .status-dot-green {
+    width: 8px;
+    height: 8px;
+    background-color: #10b981;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  .status-dot-amber {
+    width: 8px;
+    height: 8px;
+    background-color: #f59e0b;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  .status-dot-red {
+    width: 8px;
+    height: 8px;
+    background-color: #ef4444;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+
+  /* Mobile-specific adjustments */
+  @media (max-width: 768px) {
+    .staff-main-tab {
+      min-width: 60px;
+      max-width: 75px;
+      padding: 6px 3px !important;
+    }
+
+    .staff-main-tab span {
+      font-size: 9px;
+    }
+
+    .staff-tab-trigger {
+      min-height: 44px;
+      padding: 6px 8px;
+      font-size: 12px;
+    }
+  }
+
+  /* Very small screens */
+  @media (max-width: 375px) {
+    .staff-main-tab {
+      min-width: 55px;
+      max-width: 65px;
+      padding: 4px 2px !important;
+    }
+
+    .staff-main-tab span {
+      font-size: 8px;
+    }
+  }
+
+  /* Certification status tabs styling */
+  .cert-status-tabs {
+    background-color: #f8fafc;
+    border-radius: 8px;
+    padding: 4px;
+  }
+
+  .cert-status-trigger {
+    min-height: 44px;
+    padding: 6px 8px;
+    font-size: 13px;
+    font-weight: 500;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cert-status-trigger[data-state="active"] {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+  }
+
+  /* Mobile adjustments for certification tabs */
+  @media (max-width: 768px) {
+    .cert-status-trigger {
+      min-height: 40px;
+      padding: 4px 6px;
+      font-size: 11px;
+    }
+  }
+
+  @media (max-width: 375px) {
+    .cert-status-trigger {
+      min-height: 36px;
+      padding: 3px 4px;
+      font-size: 10px;
+    }
+  }
+}
+
+:root {
+  /* Medical Blue Color Scheme - inspired by iD Medical */
+  --medical-blue-50: #f0f7ff;
+  --medical-blue-100: #e0efff;
+  --medical-blue-200: #bae2ff;
+  --medical-blue-300: #7dcfff;
+  --medical-blue-400: #38b6ff;
+  --medical-blue-500: #0d99e5;
+  --medical-blue-600: #0078c4;
+  --medical-blue-700: #005e9e;
+  --medical-blue-800: #1e3a8a;
+  --medical-blue-900: #1e2563;
+  --medical-blue-950: #0f1741;
+  
+  /* Header Blue - Deep Medical Blue from iD Medical */
+  --header-blue: #1e2563;
+  --header-blue-dark: #0f1741;
+  --header-blue-light: #3730a3;
+  
+  /* Accent Colors for Locums */
+  --locum-teal: #14b8a6;
+  --locum-green: #059669;
+  --locum-orange: #ea580c;
+  
+  /* Purple for Nurse Practitioners */
+  --medical-purple-50: #faf5ff;
+  --medical-purple-100: #f3e8ff;
+  --medical-purple-200: #e9d5ff;
+  --medical-purple-300: #d8b4fe;
+  --medical-purple-400: #c084fc;
+  --medical-purple-500: #a855f7;
+  --medical-purple-600: #9333ea;
+  --medical-purple-700: #7c3aed;
+  --medical-purple-800: #6b21a8;
+  --medical-purple-900: #581c87;
+  
+  /* Neutral Medical Grays */
+  --neutral-50: #f8fafc;
+  --neutral-100: #f1f5f9;
+  --neutral-200: #e2e8f0;
+  --neutral-300: #cbd5e1;
+  --neutral-400: #94a3b8;
+  --neutral-500: #64748b;
+  --neutral-600: #475569;
+  --neutral-700: #334155;
+  --neutral-800: #1e293b;
+  --neutral-900: #0f172a;
+  
+  /* Status Colors for Medical Platform */
+  --success: #059669;
+  --warning: #d97706;
+  --error: #dc2626;
+  --info: #0078c4;
+  
+  /* Brand Colors */
+  --brand-primary: var(--medical-blue-800);
+  --brand-secondary: var(--locum-teal);
+}
+
+/* Typography */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+}
+
+/* Custom Component Styles */
+.btn-joyjoy {
+  @apply inline-flex items-center justify-center px-5 py-3 font-medium rounded-lg transition-all duration-300;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-joyjoy:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary-joyjoy {
+  background: var(--primary-600);
+  color: white;
+}
+
+.btn-primary-joyjoy:hover {
+  background: var(--primary-700);
+}
+
+.btn-secondary-joyjoy {
+  background: var(--primary-50);
+  color: var(--primary-700);
+}
+
+.btn-secondary-joyjoy:hover {
+  background: var(--primary-100);
+}
+
+.card-joyjoy {
+  @apply bg-white rounded-xl p-6 transition-all duration-300;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+}
+
+.card-joyjoy:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+}
+
+.gradient-primary {
+  background: linear-gradient(135deg, var(--primary-900) 0%, var(--primary-700) 100%);
+}
+
+.gradient-cta {
+  background: linear-gradient(135deg, var(--primary-600) 0%, var(--primary-800) 100%);
+}
+
+.gradient-accent {
+  background: linear-gradient(135deg, var(--accent-500) 0%, var(--accent-600) 100%);
+}
+
+.shadow-soft {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.shadow-card {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+}
+
+.shadow-lg-joyjoy {
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+}
+
+/* Healthcare-specific animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    transform: translateY(20px); 
+    opacity: 0; 
+  }
+  to { 
+    transform: translateY(0); 
+    opacity: 1; 
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-fade-in { 
+  animation: fadeIn 0.5s ease-in-out; 
+}
+
+.animate-slide-up { 
+  animation: slideUp 0.5s ease-out; 
+}
+
+.animate-pulse-joyjoy { 
+  animation: pulse 2s infinite; 
+}
+
+/* Status badges */
+.badge-success {
+  background: var(--success);
+  color: white;
+  @apply py-1 px-3 rounded-full text-xs font-medium;
+}
+
+.badge-warning {
+  background: var(--warning);
+  color: white;
+  @apply py-1 px-3 rounded-full text-xs font-medium;
+}
+
+.badge-error {
+  background: var(--error);
+  color: white;
+  @apply py-1 px-3 rounded-full text-xs font-medium;
+}
+
+/* Healthcare focus styles */
+.healthcare-shadow {
+  box-shadow: 0 4px 6px -1px rgba(2, 132, 199, 0.1), 0 2px 4px -1px rgba(2, 132, 199, 0.06);
+}
+
+.healthcare-border {
+  border-color: var(--primary-200);
+}
+
+.healthcare-text {
+  color: var(--primary-700);
+}
+
+.healthcare-bg {
+  background-color: var(--primary-50);
+}
+
+/* Form improvements */
+.form-input-joyjoy {
+  @apply w-full px-4 py-3 border rounded-lg text-base transition-all duration-200;
+  border-color: var(--neutral-300);
+}
+
+.form-input-joyjoy:focus {
+  outline: none;
+  border-color: var(--primary-600);
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.1);
+}
+
+/* Enhanced Button Styling for Better Text Visibility */
+.button-joyjoy {
+  @apply font-semibold transition-all duration-300;
+  text-shadow: none !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.button-joyjoy span {
+  color: inherit !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: inline !important;
+}
+
+/* Ensure button text is always visible on all states */
+button span, .button span, a button span {
+  color: inherit !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: inline !important;
+  text-shadow: none !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Force visible text on hover states */
+button:hover span, .button:hover span, a:hover button span {
+  color: inherit !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Ensure smooth scrolling for all page transitions */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Fix any potential color contrast issues */
+.text-white {
+  color: #ffffff !important;
+}
+
+.text-blue-900 {
+  color: #1e3a8a !important;
+}
+
+.form-label-joyjoy {
+  @apply block mb-2 text-sm font-medium;
+  color: var(--neutral-700);
+}
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+  
+  /* Healthcare specific colors */
+  --healthcare-primary: hsl(207, 90%, 54%);
+  --healthcare-secondary: hsl(142, 71%, 45%);
+  --healthcare-accent: hsl(38, 100%, 49%);
+  --healthcare-success: hsl(142, 71%, 45%);
+  --healthcare-warning: hsl(38, 100%, 49%);
+  --healthcare-error: hsl(0, 84%, 60%);
+  
+  /* Staff portal blue theme */
+  --header-blue: #1e40af;
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+}
+
+@layer components {
+  .healthcare-shadow {
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 
+                0 4px 5px 0 rgba(0, 0, 0, 0.14), 
+                0 1px 10px 0 rgba(0, 0, 0, 0.12);
+  }
+  
+  .healthcare-shadow-lg {
+    box-shadow: 0 8px 10px -5px rgba(0, 0, 0, 0.2), 
+                0 16px 24px 2px rgba(0, 0, 0, 0.14), 
+                0 6px 30px 5px rgba(0, 0, 0, 0.12);
+  }
+  
+  .skill-badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  
+  .skill-badge-dementia {
+    @apply bg-blue-100 text-blue-800;
+  }
+  
+  .skill-badge-moving {
+    @apply bg-green-100 text-green-800;
+  }
+  
+  .skill-badge-medication {
+    @apply bg-purple-100 text-purple-800;
+  }
+  
+  .skill-badge-safeguarding {
+    @apply bg-yellow-100 text-yellow-800;
+  }
+  
+  .status-badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  
+  .status-badge-confirmed {
+    @apply bg-green-100 text-green-800;
+  }
+  
+  .status-badge-pending {
+    @apply bg-yellow-100 text-yellow-800;
+  }
+  
+  .status-badge-open {
+    @apply bg-red-100 text-red-800;
+  }
+  
+  .status-badge-declined {
+    @apply bg-gray-100 text-gray-800;
+  }
+}
